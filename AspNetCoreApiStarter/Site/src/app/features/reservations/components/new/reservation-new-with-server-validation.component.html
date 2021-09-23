@@ -1,0 +1,46 @@
+<div fxLayout="row wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>{{ rsc.title }}</mat-card-title>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <!-- <app-form-errors [serverErrorMessages]="['test', 'test']"></app-form-errors> -->
+                    <div fxLayout="row wrap">
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field style="width: 100%">
+                                <input matInput [placeholder]="rsc.form.controls.username.label" type="text" [formControl]="form.controls.username">
+                            </mat-form-field>
+                            <app-field-errors [serverErrorMessages]="form.controls.username.errors"></app-field-errors>
+                        </div>
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field style="width: 100%">
+                                <input matInput [placeholder]="rsc.form.controls.roomId.label" type="text" [formControl]="form.controls.roomId">
+                            </mat-form-field>
+                            <app-field-errors [serverErrorMessages]="form.controls.roomId.errors"></app-field-errors>
+                        </div>
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field style="width: 100%">
+                                <input matInput [placeholder]="rsc.form.controls.date.label" type="text" [formControl]="form.controls.date">
+                            </mat-form-field>
+                            <app-field-errors [serverErrorMessages]="form.controls.date.errors"></app-field-errors>
+                        </div>
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field style="width: 100%">
+                                <input matInput [placeholder]="rsc.form.controls.slot.label" type="text" [formControl]="form.controls.slot">
+                            </mat-form-field>
+                            <app-field-errors [serverErrorMessages]="form.controls.slot.errors"></app-field-errors>
+                        </div>
+                        <div class="button-row">
+                            <button mat-raised-button color="primary" type="submit">{{ rsc.form.actions.submit }}</button>
+                            <button mat-raised-button color="warn" type="button" (click)="onCancel()">{{ rsc.form.actions.cancel }}</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div fxLayout="row wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>{{ rsc.title }}</mat-card-title>
+                <div class="responsive-table">
+                    <mat-table #table [dataSource]="dataSource" matSort style="max-height: 500px; overflow:auto;">
+                        <ng-container matColumnDef="id">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> {{ rsc.cellsHeaders.num }} </mat-header-cell>
+                            <mat-cell *matCellDef="let room"> {{ room.id }} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header> {{ rsc.cellsHeaders.roomname }} </mat-header-cell>
+                            <mat-cell *matCellDef="let room"> {{ room.name}} </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+
+                    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

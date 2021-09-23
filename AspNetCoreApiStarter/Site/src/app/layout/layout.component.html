@@ -1,0 +1,53 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="main-container" [dir]="dir" [ngClass]="{'minisidebar': minisidebar, 'boxed': boxed, 'danger': danger, 'blue': blue, 'green': green, 'dark': dark }">
+    <!-- ============================================================== -->
+    <!-- Topbar - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <mat-toolbar color="primary" class="topbar telative">
+        <!-- ============================================================== -->
+        <!-- Logo - style you can find in header.scss -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <!-- Logo text -->
+                <span fxShow="false" fxShow.gt-xs>
+                    <!-- dark Logo text -->
+                    <img src="assets/images/Viveris_Logo_Blanc_SMALL.png" class="dark-logo" alt="homepage" width="100">
+                    <!-- Light Logo text -->
+                    <img src="assets/images/Viveris_Logo_Blanc_SMALL.png" class="light-logo" alt="homepage" width="100">
+                </span>
+            </a>
+        </div>
+        <button mat-icon-button [routerLink]="['/', 'rooms']" value="sidebarclosed">
+            Rooms
+        </button>
+        <span fxFlex></span>
+        <button mat-icon-button [routerLink]="['/', 'reservations']" value="sidebarclosed">
+            Reservations
+        </button>
+        <span fxFlex></span>
+    </mat-toolbar>
+    <!-- ============================================================== -->
+    <!-- End Topbar - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0" [ngClass]="{'minisidebar': minisidebar}">
+        <!-- ============================================================== -->
+        <!-- Page container - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <mat-sidenav-content class="page-wrapper">
+
+            <div class="page-content">
+
+                <router-outlet></router-outlet>
+                <notifier-container></notifier-container>
+
+            </div>
+
+        </mat-sidenav-content>
+        <!-- ============================================================== -->
+        <!-- Page container - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+    </mat-sidenav-container>
+</div>
